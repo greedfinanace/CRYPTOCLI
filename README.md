@@ -35,7 +35,7 @@ A production-ready, cross-platform command-line cryptocurrency tracker with mass
 Run the application:
 
 ```bash
-python crypto_tracker/main.py
+python main.py
 ```
 
 ### Controls
@@ -47,6 +47,11 @@ python crypto_tracker/main.py
 | `H`, `4`, `D`, `W`, `M`, `Y` | Change **Timeframe** (Hour, 4H, Day, Week, Month, Year) |
 | `I` | Toggle **Indicators** (RSI, MACD, etc.) |
 | `F` | Add/Remove from **Favorites** |
+| `V` | View **Favorites** list |
+| `T` | Show **Trending** coins in sidebar |
+| `G` | Show **Top Gainers** in sidebar |
+| `L` | Show **Top Losers** in sidebar |
+| `C` | Toggle **Chart Type** (Candle / Line) |
 | `Q` | **Quit** application |
 
 ## Tech Stack
@@ -63,8 +68,8 @@ python crypto_tracker/main.py
 ## Structure
 
 ```
+main.py                       # Entry point & main loop
 crypto_tracker/
-├── main.py                    # Entry point & main loop
 ├── api/
 │   ├── binance.py            # Binance API wrapper
 │   ├── coingecko.py          # CoinGecko API wrapper
