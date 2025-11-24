@@ -24,6 +24,14 @@ A production-ready, cross-platform command-line cryptocurrency tracker with mass
    ```
 
 2. **Install dependencies:**
+   
+   **Windows:**
+   Double-click `install.bat` or run:
+   ```cmd
+   pip install -r requirements.txt
+   ```
+
+   **Linux / macOS:**
    ```bash
    pip install -r requirements.txt
    ```
@@ -34,6 +42,13 @@ A production-ready, cross-platform command-line cryptocurrency tracker with mass
 
 Run the application:
 
+**Windows:**
+Double-click `run.bat` or execute:
+```cmd
+python main.py
+```
+
+**Linux / macOS:**
 ```bash
 python main.py
 ```
