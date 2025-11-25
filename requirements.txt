@@ -5,3 +5,6 @@ aiohttp
 websocket-client
 pandas
 requests
+fastapi
+uvicorn
+mplfinance

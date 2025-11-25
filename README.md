@@ -1,21 +1,15 @@
-# Universal Crypto Tracker v3.0
+# Universal Crypto Tracker v3.0 🚀
 
-A production-ready, cross-platform command-line cryptocurrency tracker with massive full-screen charts, real-time data streaming, and support for over 17,000 coins.
+A powerful, production-grade terminal dashboard for cryptocurrency tracking. Featuring real-time data, beautiful ASCII visualizations, and a modern web dashboard companion.
 
-![Terminal Screenshot](https://placeholder.com/screenshot)
+## 🔥 New Features (v3.0)
+*   **Big Price Ticker:** A massive, beautiful ASCII price display mode for focus.
+*   **Liquidation Levels:** Track key resistance (Liquidation Short) and support (Liquidation Long) levels directly on the chart.
+*   **Web Dashboard:** A full modern React + Tailwind web interface running locally.
+*   **Minute Timeframes:** Support for 1m, 5m, 15m, 30m analysis.
+*   **Dynamic Layout:** Resize every panel (Sidebar, Chart, Liquidation Window) in real-time.
 
-## Features
-
-- **Massive Coin Support**: Access 300+ Binance pairs and 17,000+ CoinGecko coins.
-- **Real-Time Data**: Live price streaming via WebSocket for Binance pairs.
-- **Interactive Charts**: Full-screen terminal charts with Zoom, Pan, and Candlesticks.
-- **Technical Indicators**: RSI, MACD, Bollinger Bands, EMA, SMA.
-- **Search**: Fuzzy search for any coin by symbol or name.
-- **Watchlist & Favorites**: Keep track of your top coins.
-- **Multi-Timeframe**: 1H, 4H, 1D, 1W, 1M, 1Y analysis.
-- **Cross-Platform**: Works on Linux, macOS, and Windows.
-
-## Installation
+## 🛠 Installation
 
 1. **Clone the repository:**
    ```bash
@@ -24,82 +18,75 @@ A production-ready, cross-platform command-line cryptocurrency tracker with mass
    ```
 
 2. **Install dependencies:**
-   
-   **Windows:**
-   Double-click `install.bat` or run:
-   ```cmd
-   pip install -r requirements.txt
-   ```
+   *   **Windows:** Double-click `install.bat`
+   *   **Manual:** `pip install -r requirements.txt`
 
-   **Linux / macOS:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+## 🚀 Usage
 
-   *Note: Requires Python 3.10+*
+### 1. Terminal Dashboard
+Run the main TUI application:
+*   **Windows:** Double-click `run.bat`
+*   **Command:** `python main.py`
 
-## Usage
+### 2. Web Dashboard (New!)
+Launch the modern web interface:
+*   **Windows:** Double-click `run_dashboard.bat`
+*   **Access:** Open `http://localhost:8000` in your browser.
 
-Run the application:
-
-**Windows:**
-Double-click `run.bat` or execute:
-```cmd
-python main.py
-```
-
-**Linux / macOS:**
+### 3. Professional Charts
+Generate high-resolution PNG charts for sharing:
 ```bash
-python main.py
+python generate_chart.py
 ```
 
-### Controls
+## ⌨️ Controls (Terminal)
 
-| Key | Action |
-| --- | --- |
-| `/` | **Search** for a coin |
-| `1`-`9` | Quick select coin from **Watchlist** |
-| `H`, `4`, `D`, `W`, `M`, `Y` | Change **Timeframe** (Hour, 4H, Day, Week, Month, Year) |
-| `I` | Toggle **Indicators** (RSI, MACD, etc.) |
-| `F` | Add/Remove from **Favorites** |
-| `V` | View **Favorites** list |
-| `T` | Show **Trending** coins in sidebar |
-| `G` | Show **Top Gainers** in sidebar |
-| `L` | Show **Top Losers** in sidebar |
-| `C` | Toggle **Chart Type** (Candle / Line) |
-| `Q` | **Quit** application |
+| Key | Action | 
+| :--- | :--- | 
+| **Navigation** | | 
+| `S` | **Search** for any coin (Binance/CoinGecko) | 
+| `1`-`9` | Select coin from Sidebar | 
+| `?` or `'` | Open **Help Menu** | 
+| **Timeframes** | | 
+| `M` | Minute Menu (1m, 5m, 15m, 30m) | 
+| `H`, `4`, `D` | 1 Hour, 4 Hour, 1 Day | 
+| `W`, `M`, `Y` | 1 Week, 1 Month, 1 Year | 
+| **Tools & View** | | 
+| `P` / `X` | **Big Ticker Mode** (Toggle Chart Visibility) | 
+| `O` | Toggle **Liquidation & Order Block Levels** | 
+| `I` | Indicators Menu (RSI, BB, EMA, SMA) | 
+| `C` | Cycle Chart Type (ASCII / Candle / Line) | 
+| **Layout & Sizing** | | 
+| `<` / `>` | Resize **Sidebar** (Watchlist) | 
+| `[` / `]` | Resize **Liquidation Window** | 
+| **Watchlist** | | 
+| `F` | Add/Remove **Favorite** | 
+| `T` | View **Trending** | 
+| `G` / `L` | View **Gainers** / **Losers** | 
+| `Q` | **Quit** | 
 
-## Tech Stack
+## 🏗 Architecture
 
-- **Language**: Python 3.10+
-- **UI**: [Rich](https://github.com/Textualize/rich) (Panels, Tables, Live updates)
-- **Charting**: [Plotext](https://github.com/piccolomo/plotext) (Terminal plotting)
-- **Input**: Custom cross-platform handler (Unix `termios` / Windows `msvcrt`)
-- **Data**: 
-  - [Binance API](https://binance.com) (Real-time)
-  - [CoinGecko API](https://coingecko.com) (Historical & Metadata)
-- **Cache**: SQLite3
-
-## Structure
+The project is built with a modular architecture separating API logic, UI rendering, and data processing.
 
 ```
-main.py                       # Entry point & main loop
-crypto_tracker/
-├── api/
-│   ├── binance.py            # Binance API wrapper
-│   ├── coingecko.py          # CoinGecko API wrapper
-│   └── cache.py              # SQLite caching layer
-├── ui/
-│   ├── chart.py              # Plotext chart rendering
-│   ├── search.py             # Coin search modal
-│   └── watchlist.py          # Multi-coin watchlist
-├── utils/
-│   ├── indicators.py         # Technical indicators
-│   ├── websocket_handler.py  # WebSocket manager
-│   └── input_handler.py      # Cross-platform input
-└── data/                     # Local database storage
+c:\web\
+├── main.py                   # Main TUI Application Entry
+├── server.py                 # FastAPI Backend for Web Dashboard
+├── generate_chart.py         # High-Res Chart Generator
+├── crypto_tracker/
+│   ├── api/                  # Binance & CoinGecko integrations
+│   ├── ui/                   # Rich & ASCII rendering engines
+│   │   ├── ascii_chart.py    # Custom ASCII Candle Renderer
+│   │   ├── big_price.py      # Big Ticker Renderer
+│   │   └── ...
+│   └── utils/                # Technical Indicators & WebSocket
+└── web_dashboard/            # React + Vite + Tailwind Frontend
 ```
 
-## License
+## 📦 Requirements
+*   Python 3.10+
+*   Node.js (Optional, for building Web Dashboard)
 
+## 📄 License
 MIT
